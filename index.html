@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebb — Symptom Tracking, Simplified</title>
+    <meta name="description" content="The symptom tracker for when you're too tired for symptom trackers. Log how you feel in 30 seconds. Built for chronic illness.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --warm-bg: #FFF8F5;
+            --terra: #C4573A;
+            --terra-light: #E8956D;
+            --terra-dark: #A3432B;
+            --text-dark: #3D2C2C;
+            --text-body: #5C4444;
+            --text-muted: #9B8080;
+            --card-bg: #FFFFFF;
+            --card-border: rgba(196, 87, 58, 0.08);
+            --card-shadow: 0 2px 24px rgba(196, 87, 58, 0.06);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-bg);
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 24px;
+            position: relative;
+            background: linear-gradient(180deg, #FFF8F5 0%, #FFF0EA 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--terra), var(--terra-light), var(--terra));
+        }
+
+        .hero-content {
+            max-width: 680px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(196, 87, 58, 0.08);
+            color: var(--terra);
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+            letter-spacing: 0.02em;
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.8rem, 7vw, 4.2rem);
+            color: var(--text-dark);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--terra);
+        }
+
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-body);
+            line-height: 1.6;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .app-store-btn {
+            display: inline-block;
+            background: var(--text-dark);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(61, 44, 44, 0.2);
+        }
+
+        .hero-note {
+            margin-top: 16px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Screenshots */
+        .screenshots {
+            padding: 0 24px 80px;
+            background: linear-gradient(180deg, #FFF0EA 0%, white 100%);
+            overflow: hidden;
+        }
+
+        .screenshots-inner {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .phone-frame {
+            flex-shrink: 0;
+            width: 200px;
+            background: #1a1a1a;
+            border-radius: 28px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(61, 44, 44, 0.15), 0 4px 16px rgba(61, 44, 44, 0.08);
+            opacity: 0.85;
+            transform: scale(0.92);
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .phone-frame.featured-phone {
+            width: 240px;
+            opacity: 1;
+            transform: scale(1);
+            box-shadow: 0 28px 80px rgba(196, 87, 58, 0.18), 0 8px 24px rgba(61, 44, 44, 0.1);
+        }
+
+        .phone-frame img {
+            width: 100%;
+            border-radius: 20px;
+            display: block;
+        }
+
+        @media (max-width: 600px) {
+            .phone-frame { width: 140px; border-radius: 20px; padding: 5px; }
+            .phone-frame.featured-phone { width: 170px; }
+            .phone-frame img { border-radius: 15px; }
+            .screenshots-inner { gap: 12px; }
+        }
+
+        /* Positioning */
+        .positioning {
+            padding: 100px 24px;
+            text-align: center;
+            background: white;
+        }
+
+        .positioning .inner {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .positioning h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 24px;
+            line-height: 1.3;
+        }
+
+        .positioning p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-body);
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+
+        .positioning .conditions {
+            margin-top: 32px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .condition-tag {
+            background: var(--warm-bg);
+            color: var(--terra);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--card-border);
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 24px;
+            background: var(--warm-bg);
+        }
+
+        .features .inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 36px 28px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-body);
+            font-weight: 300;
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 100px 24px;
+            background: white;
+        }
+
+        .how-it-works .inner {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .how-it-works h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 56px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            text-align: left;
+        }
+
+        .step {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--terra), var(--terra-light));
+            color: white;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.3rem;
+        }
+
+        .step h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .step p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Pricing */
+        .pricing {
+            padding: 100px 24px;
+            background: var(--warm-bg);
+        }
+
+        .pricing .inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            margin-bottom: 12px;
+        }
+
+        .pricing .lead {
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            font-size: 1.05rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .pricing-grid { grid-template-columns: 1fr; }
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 28px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+            text-align: left;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--terra);
+            border-width: 2px;
+            position: relative;
+        }
+
+        .pricing-card.featured::before {
+            content: 'Save 50%';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: var(--terra);
+            color: white;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 4px 14px;
+            border-radius: 100px;
+        }
+
+        .pricing-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .pricing-card .price {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.4rem;
+            color: var(--text-dark);
+            margin: 16px 0 4px;
+        }
+
+        .pricing-card .period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pricing-card li {
+            font-size: 0.92rem;
+            color: var(--text-body);
+            padding: 8px 0;
+            border-top: 1px solid rgba(196, 87, 58, 0.06);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-card li::before {
+            content: '✓';
+            color: var(--terra);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .free-note {
+            margin-top: 48px;
+            font-size: 1rem;
+            color: var(--text-body);
+        }
+
+        .free-note strong {
+            color: var(--text-dark);
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 24px;
+            text-align: center;
+            background: linear-gradient(180deg, white 0%, var(--warm-bg) 100%);
+        }
+
+        .cta h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            background: var(--warm-bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--terra);
+            margin-bottom: 16px;
+        }
+
+        .footer-links {
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-body);
+            text-decoration: none;
+            margin: 0 14px;
+            font-size: 0.92rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--terra);
+        }
+
+        .footer-copy {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content > * {
+            animation: fadeUp 0.7s ease-out both;
+        }
+        .hero-content > *:nth-child(1) { animation-delay: 0.1s; }
+        .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
+        .hero-content > *:nth-child(3) { animation-delay: 0.3s; }
+        .hero-content > *:nth-child(4) { animation-delay: 0.4s; }
+        .hero-content > *:nth-child(5) { animation-delay: 0.5s; }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Now on the App Store</div>
+            <h1>Track symptoms in<br><em>30 seconds</em> a day</h1>
+            <p class="subtitle">The symptom tracker for when you're too tired for symptom trackers. Brain fog friendly. Built for chronic illness.</p>
+            <a href="#" class="app-store-btn">Download for iPhone</a>
+            <p class="hero-note">Free to use · Premium starts at $4.99/mo</p>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="screenshots">
+        <div class="screenshots-inner">
+            <div class="phone-frame">
+                <img src="screenshot-home.png" alt="Ebb home screen showing weekly symptom overview and today's ratings">
+            </div>
+            <div class="phone-frame featured-phone">
+                <img src="screenshot-log.png" alt="Ebb daily log screen with symptom severity rating">
+            </div>
+            <div class="phone-frame">
+                <img src="screenshot-trends.png" alt="Ebb trends screen showing symptom patterns over time">
+            </div>
+        </div>
+    </section>
+
+    <!-- Positioning -->
+    <section class="positioning">
+        <div class="inner">
+            <h2>Most symptom apps ask too much of you. Ebb doesn't.</h2>
+            <p>If your condition robs you of energy and focus, the last thing you need is a complicated app. Ebb does one thing well: lets you log how you feel, fast, every day.</p>
+            <p>No overwhelming dashboards. No 15-minute setup. Just tap, rate, done.</p>
+            <div class="conditions">
+                <span class="condition-tag">Fibromyalgia</span>
+                <span class="condition-tag">ME/CFS</span>
+                <span class="condition-tag">Lupus</span>
+                <span class="condition-tag">EDS</span>
+                <span class="condition-tag">POTS</span>
+                <span class="condition-tag">Crohn's</span>
+                <span class="condition-tag">Chronic Pain</span>
+                <span class="condition-tag">Brain Fog</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="inner">
+            <h2>Everything you need. Nothing you don't.</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>30-Second Check-In</h3>
+                    <p>Rate each symptom 1–5, add a note if you want, and you're done. Every day, in half a minute.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Spot Your Patterns</h3>
+                    <p>See your week at a glance on the home screen. Dive into trends over weeks, months, or all time with Premium.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Doctor-Ready Reports</h3>
+                    <p>Generate a clean PDF with your symptoms, ratings, notes, and charts. Walk into appointments prepared.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Gentle Reminders</h3>
+                    <p>Set a daily nudge at whatever time works for you. Building a logging habit shouldn't take energy.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Private by Default</h3>
+                    <p>All data stays on your device. No accounts, no cloud, no tracking. Your health data is yours alone.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Track What Matters</h3>
+                    <p>Pain, fatigue, brain fog, nausea, mood, sleep — pick from suggestions or add your own symptoms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works">
+        <div class="inner">
+            <h2>Up and running in 2 minutes</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Pick your symptoms</h3>
+                        <p>Choose from common symptoms or type your own. You can always change these later.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>Log daily in 30 seconds</h3>
+                        <p>Rate each symptom 1–5, add an optional note, tap save. That's the whole routine.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>See your patterns emerge</h3>
+                        <p>After a few days, your home screen shows the week. After a few weeks, trends tell you what's changing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+        <div class="inner">
+            <h2>Simple pricing</h2>
+            <p class="lead">Start free. Upgrade when you're ready.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Free</h3>
+                    <div class="price">$0</div>
+                    <div class="period">forever</div>
+                    <ul>
+                        <li>Track up to 5 symptoms</li>
+                        <li>Daily logging with notes</li>
+                        <li>7-day trends</li>
+                        <li>Daily reminders</li>
+                        <li>CSV export</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Premium</h3>
+                    <div class="price">$4.99</div>
+                    <div class="period">per month · or $29.99/year</div>
+                    <ul>
+                        <li>Everything in Free</li>
+                        <li>Unlimited symptoms</li>
+                        <li>Unlimited history</li>
+                        <li>PDF reports for doctors</li>
+                        <li>Full trends (30/90/all)</li>
+                    </ul>
+                </div>
+            </div>
+            <p class="free-note"><strong>1-week free trial</strong> included with Premium. Cancel anytime.</p>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Track the ebb and flow<br>of how you feel</h2>
+        <p>That's it. Nothing more, nothing less.</p>
+        <a href="#" class="app-store-btn">Download for iPhone</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Ebb</div>
+        <div class="footer-links">
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <p class="footer-copy">© 2026 New Era Code LLC. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
