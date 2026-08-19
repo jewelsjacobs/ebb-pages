@@ -1,14 +1,3 @@
 {
-  "redirects": [
-    {
-      "source": "/terms",
-      "destination": "/terms.html",
-      "permanent": true
-    },
-    {
-      "source": "/privacy",
-      "destination": "/privacy.html",
-      "permanent": true
-    }
-  ]
+  "cleanUrls": true
 }
