@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long COVID Symptom Tracker — Pacing &amp; Crash Logs in 30 Seconds | Ebb</title>
+    <meta name="description" content="A long COVID symptom tracker built for crash days. Log fatigue, PEM, brain fog, and heart symptoms in 30 seconds — no long forms. Free on iPhone.">
+    <link rel="canonical" href="https://ebb.bio/long-covid-symptom-tracker">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ebb">
+    <meta property="og:title" content="Fibromyalgia Symptom Tracker — Log Flares in 30 Seconds">
+    <meta property="og:description" content="A fibromyalgia symptom tracker built for low-energy days. Log pain, fatigue, and brain fog in 30 seconds — no long forms, no friction. Free on iPhone.">
+    <meta property="og:url" content="https://ebb.bio/long-covid-symptom-tracker">
+    <meta property="og:image" content="https://ebb.bio/screenshot-home.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fibromyalgia Symptom Tracker — Log Flares in 30 Seconds">
+    <meta name="twitter:description" content="A fibromyalgia symptom tracker built for low-energy days. Log pain, fatigue, and brain fog in 30 seconds — no long forms, no friction. Free on iPhone.">
+    <meta name="twitter:image" content="https://ebb.bio/screenshot-home.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --warm-bg: #FFF8F5;
+            --terra: #C4573A;
+            --terra-light: #E8956D;
+            --terra-dark: #A3432B;
+            --text-dark: #3D2C2C;
+            --text-body: #5C4444;
+            --text-muted: #9B8080;
+            --card-bg: #FFFFFF;
+            --card-border: rgba(196, 87, 58, 0.08);
+            --card-shadow: 0 2px 24px rgba(196, 87, 58, 0.06);
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        .top-rule { height: 4px; background: linear-gradient(90deg, var(--terra), var(--terra-light), var(--terra)); }
+        article { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
+        .badge {
+            display: inline-block; background: rgba(196, 87, 58, 0.08); color: var(--terra);
+            font-size: 0.85rem; font-weight: 500; padding: 6px 16px; border-radius: 100px;
+            margin-bottom: 28px; letter-spacing: 0.02em;
+        }
+        h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.15; margin-bottom: 20px; }
+        h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 48px 0 14px; }
+        h3 { font-family: 'DM Sans', sans-serif; font-size: 1.08rem; font-weight: 600; margin: 26px 0 8px; }
+        p { color: var(--text-body); margin-bottom: 18px; }
+        ul { color: var(--text-body); margin: 0 0 18px 22px; }
+        li { margin-bottom: 8px; }
+        .cta {
+            display: inline-block; background: var(--terra); color: #fff; text-decoration: none;
+            font-weight: 600; padding: 14px 32px; border-radius: 100px; margin-top: 8px;
+        }
+        .cta:hover { background: var(--terra-dark); }
+        .card {
+            background: var(--card-bg); border: 1px solid var(--card-border); box-shadow: var(--card-shadow);
+            border-radius: 22px; padding: 28px; margin: 32px 0;
+        }
+        .home-link { color: var(--terra); text-decoration: none; font-weight: 500; }
+        footer { text-align: center; padding: 32px; color: var(--text-muted); font-size: 0.9rem; }
+        footer a { color: var(--terra); text-decoration: none; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What fibromyalgia symptoms can I track in Ebb?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Whatever you name. Most people with fibro track widespread pain, fatigue, brain fog, sleep quality, morning stiffness, headaches, and mood. You rate each one 1 to 5 and can add one short note for the day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ebb free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The free tier lets you track up to 5 symptoms with full daily logging, complete history, 7-day trends, a daily reminder, and CSV export. Premium ($4.99/month or $29.99/year) adds unlimited symptoms, full trend ranges, and doctor-ready PDF reports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I show my log to my rheumatologist?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Premium generates a PDF report over any date range with your symptom ratings, notes, and charts \u2014 made to print or email before an appointment. The free tier exports the same data as CSV."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I miss days during a flare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nothing. Ebb has no streaks and no guilt mechanics. A gap of a week doesn't break your history or your trends \u2014 you pick up whenever you can."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="top-rule"></div>
+    <article>
+        <span class="badge">For long COVID</span>
+        <h1>A symptom tracker that works on crash days</h1>
+
+        <p>Long COVID symptoms move in waves — fatigue, brain fog, racing heart, post-exertional crashes that arrive a day or two after you overdid it. The apps that could help you see those patterns usually demand more energy than a crash day allows.</p>
+
+        <p>Ebb was built around that reality. You tap your symptoms, rate each one 1 to 5, add a note if you want, and you're done. Thirty seconds, even through brain fog.</p>
+
+        <a class="cta" href="https://apps.apple.com/us/app/ebb-symptom-tracker/id6759589558">Download Ebb free on iPhone</a>
+
+        <h2>Why track long COVID symptoms at all?</h2>
+        <p>Two reasons, and both are practical, not aspirational:</p>
+        <ul>
+            <li><strong>Pacing.</strong> Post-exertional malaise shows up 24–72 hours after the exertion that caused it, which makes the connection nearly impossible to see in the moment. Tiny daily logs put what you did Tuesday and how you crashed Thursday on the same chart.</li>
+            <li><strong>Appointments.</strong> Long COVID care means repeatedly describing a moving target to doctors. A three-month trend of fatigue, brain fog, and heart symptoms answers "how have you been?" in one glance — and Ebb exports to PDF so you can hand it over.</li>
+        </ul>
+
+        <h2>What makes tracking sustainable with chronic illness</h2>
+        <p>The tracker you'll still be using in six months is the one that costs the least energy. Ebb keeps the cost low on purpose:</p>
+        <ul>
+            <li><strong>One screen, minimal taps.</strong> No navigating menus to log.</li>
+            <li><strong>Your symptoms, your words.</strong> Track fatigue, PEM, brain fog, palpitations, breathlessness, sleep — or anything you name yourself.</li>
+            <li><strong>A gentle daily reminder</strong> at whatever time works for your body.</li>
+            <li><strong>Missed days don't break anything.</strong> No streaks, no guilt. Log when you can.</li>
+            <li><strong>Private by default.</strong> Your health data stays on your device.</li>
+        </ul>
+
+        <div class="card">
+            <p style="margin-bottom: 8px;"><strong>Free tier:</strong> track up to 5 symptoms with full logging, history, and 7-day trends.</p>
+            <p style="margin-bottom: 0;"><strong>Premium:</strong> unlimited symptoms, full trend charts, and PDF/CSV export for appointments.</p>
+        </div>
+
+        <h2>Also living with ME/CFS, POTS, or fibromyalgia?</h2>
+        <p>The same design holds: low-energy logging for conditions that take your energy. Ebb doesn't care what your diagnosis is — it tracks whatever symptoms matter to you, at whatever pace you can manage.</p>
+
+        <a class="cta" href="https://apps.apple.com/us/app/ebb-symptom-tracker/id6759589558">Get Ebb on the App Store</a>
+
+
+        <h2>Common questions</h2>
+        <h3>What fibromyalgia symptoms can I track in Ebb?</h3>
+        <p>Whatever you name. Most people with fibro track widespread pain, fatigue, brain fog, sleep quality, morning stiffness, headaches, and mood. You rate each one 1 to 5 and can add one short note for the day.</p>
+        <h3>Is Ebb free?</h3>
+        <p>Yes. The free tier lets you track up to 5 symptoms with full daily logging, complete history, 7-day trends, a daily reminder, and CSV export. Premium ($4.99/month or $29.99/year) adds unlimited symptoms, full trend ranges, and doctor-ready PDF reports.</p>
+        <h3>Can I show my log to my rheumatologist?</h3>
+        <p>Yes. Premium generates a PDF report over any date range with your symptom ratings, notes, and charts — made to print or email before an appointment. The free tier exports the same data as CSV.</p>
+        <h3>What happens if I miss days during a flare?</h3>
+        <p>Nothing. Ebb has no streaks and no guilt mechanics. A gap of a week doesn't break your history or your trends — you pick up whenever you can.</p>
+
+        <p style="margin-top: 40px;"><a class="home-link" href="/">&larr; More about Ebb</a></p>
+    </article>
+    <footer>
+        <a href="/">Ebb</a> · <a href="/fibromyalgia-symptom-tracker">Fibromyalgia</a> · <a href="/pots-symptom-tracker">POTS</a> · <a href="/mecfs-symptom-tracker">ME/CFS</a> · <a href="/lupus-symptom-tracker">Lupus</a> · <a href="/brain-fog-symptom-tracker">Brain fog</a> · <a href="/doctor-appointment-symptom-log">Symptom log for your doctor</a> · <a href="/bearable-alternative">Ebb vs Bearable</a> · <a href="/privacy">Privacy</a> · <a href="/support">Support</a>
+    </footer>
+</body>
+</html>
