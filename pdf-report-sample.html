@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Ebb's PDF Symptom Report Looks Like (Free Sample) | Ebb</title>
+    <meta name="description" content="See exactly what Ebb's doctor-ready PDF symptom report looks like before you pay for it. Real sample PDF to download, plus what the report does and doesn't include.">
+    <link rel="canonical" href="https://ebb.bio/pdf-report-sample">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Ebb">
+    <meta property="og:title" content="What Ebb's PDF Symptom Report Looks Like">
+    <meta property="og:description" content="See exactly what Ebb's doctor-ready PDF symptom report looks like before you pay for it. Real sample PDF to download.">
+    <meta property="og:url" content="https://ebb.bio/pdf-report-sample">
+    <meta property="og:image" content="https://ebb.bio/screenshot-home.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Ebb's PDF Symptom Report Looks Like">
+    <meta name="twitter:description" content="See exactly what Ebb's doctor-ready PDF symptom report looks like before you pay for it. Real sample PDF to download.">
+    <meta name="twitter:image" content="https://ebb.bio/screenshot-home.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --warm-bg: #FFF8F5;
+            --terra: #C4573A;
+            --terra-light: #E8956D;
+            --terra-dark: #A3432B;
+            --text-dark: #3D2C2C;
+            --text-body: #5C4444;
+            --text-muted: #9B8080;
+            --card-bg: #FFFFFF;
+            --card-border: rgba(196, 87, 58, 0.08);
+            --card-shadow: 0 2px 24px rgba(196, 87, 58, 0.06);
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--warm-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+        .top-rule { height: 4px; background: linear-gradient(90deg, var(--terra), var(--terra-light), var(--terra)); }
+        article { max-width: 680px; margin: 0 auto; padding: 64px 24px 96px; }
+        .badge {
+            display: inline-block; background: rgba(196, 87, 58, 0.08); color: var(--terra);
+            font-size: 0.85rem; font-weight: 500; padding: 6px 16px; border-radius: 100px;
+            margin-bottom: 28px; letter-spacing: 0.02em;
+        }
+        h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 3.2rem); line-height: 1.15; margin-bottom: 20px; }
+        h2 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin: 48px 0 14px; }
+        h3 { font-family: 'DM Sans', sans-serif; font-size: 1.08rem; font-weight: 600; margin: 26px 0 8px; }
+        p { color: var(--text-body); margin-bottom: 18px; }
+        ul { color: var(--text-body); margin: 0 0 18px 22px; }
+        li { margin-bottom: 8px; }
+        .cta {
+            display: inline-block; background: var(--terra); color: #fff; text-decoration: none;
+            font-weight: 600; padding: 14px 32px; border-radius: 100px; margin-top: 8px;
+        }
+        .cta:hover { background: var(--terra-dark); }
+        .cta-ghost {
+            display: inline-block; background: transparent; color: var(--terra); text-decoration: none;
+            font-weight: 600; padding: 13px 30px; border-radius: 100px; margin-top: 8px;
+            border: 1.5px solid var(--terra);
+        }
+        .cta-ghost:hover { background: rgba(196, 87, 58, 0.06); }
+        .card {
+            background: var(--card-bg); border: 1px solid var(--card-border); box-shadow: var(--card-shadow);
+            border-radius: 22px; padding: 28px; margin: 32px 0;
+        }
+        .home-link { color: var(--terra); text-decoration: none; font-weight: 500; }
+        footer { text-align: center; padding: 32px; color: var(--text-muted); font-size: 0.9rem; }
+        footer a { color: var(--terra); text-decoration: none; }
+
+        /* --- Sample report preview (matches the real PDF layout) --- */
+        .preview-wrap { margin: 28px 0 10px; }
+        .preview-label { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; }
+        .paper {
+            background: #fff; border: 1px solid rgba(124, 92, 191, 0.18);
+            box-shadow: 0 4px 30px rgba(61, 44, 44, 0.10); border-radius: 6px;
+            padding: 24px; overflow-x: auto; -webkit-overflow-scrolling: touch;
+            font-family: -apple-system, Helvetica, Arial, sans-serif; color: #222; line-height: 1.5;
+        }
+        .paper h3.rpt-title { font-family: -apple-system, Helvetica, Arial, sans-serif; font-size: 20px; color: #7C5CBF; margin: 0 0 4px; font-weight: 700; }
+        .paper .rpt-sub { font-size: 12px; color: #888; margin-bottom: 20px; }
+        .paper table { width: 100%; border-collapse: collapse; margin-top: 16px; min-width: 620px; }
+        .paper th { background: #7C5CBF; color: #fff; padding: 8px 6px; text-align: left; font-size: 11px; font-weight: 600; }
+        .paper td { border-bottom: 1px solid #E0D7F5; padding: 7px 6px; font-size: 11px; color: #222; }
+        .paper tbody tr:nth-child(even) { background: #F5F3FF; }
+        .paper .num { text-align: center; }
+        .paper .note { color: #666; font-style: italic; }
+        .paper .rpt-legend { margin-top: 20px; font-size: 10px; color: #888; }
+        .paper .rpt-footer { margin-top: 28px; font-size: 10px; color: #aaa; border-top: 1px solid #E0D7F5; padding-top: 8px; }
+        .scroll-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does Ebb's PDF symptom report contain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "One table covering the last 30 days: a row per logged day, a column per symptom you track with its 1–5 rating, and your note for that day. Above the table is the date range and the list of symptoms; below it is the severity legend explaining what 1 through 5 mean."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the PDF report include charts?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PDF is a table of daily ratings and notes. Trend charts live in the app's Trends screen, not in the exported PDF."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What date range does the PDF cover?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The last 30 days, ending today. There is no date-range picker yet. If you need your full history, the free CSV export includes every day you have logged."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the PDF report free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. The PDF report is part of Ebb Premium ($4.99/month or $29.99/year). CSV export of your full history is included free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where does the PDF go after it is generated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is built on your device and handed to the standard iOS share sheet, so you can save it to Files, email it, message it, or print it. Nothing is uploaded to a server."
+      }
+    }
+  ]
+}
+    </script>
+</head>
+<body>
+    <div class="top-rule"></div>
+    <article>
+        <span class="badge">Sample report</span>
+        <h1>What Ebb's PDF report actually looks like</h1>
+
+        <p>A user asked what the PDF summaries look like before deciding whether they were worth paying for. That's a fair question, and nothing on this site answered it. So here is the real thing &mdash; the same layout the app produces, filled with made-up sample data.</p>
+
+        <div class="preview-wrap">
+            <div class="preview-label">Sample &mdash; page 1 of a 30-day report</div>
+            <div class="paper">
+                <h3 class="rpt-title">Ebb &mdash; Symptom Report</h3>
+                <div class="rpt-sub">Period: 2026-07-16 to 2026-08-15 &nbsp;&middot;&nbsp; Symptoms tracked: Fatigue, Pain, Brain fog, Sleep quality, Dizziness</div>
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Fatigue</th><th>Pain</th><th>Brain fog</th><th>Sleep quality</th><th>Dizziness</th><th>Note</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>2026-07-16</td><td class="num">4</td><td class="num">3</td><td class="num">3</td><td class="num">2</td><td class="num">2</td><td></td></tr>
+                        <tr><td>2026-07-17</td><td class="num">5</td><td class="num">4</td><td class="num">4</td><td class="num">2</td><td class="num">3</td><td class="note">Crashed after the grocery trip.</td></tr>
+                        <tr><td>2026-07-18</td><td class="num">5</td><td class="num">4</td><td class="num">5</td><td class="num">1</td><td class="num">3</td><td class="note">Second day of payback.</td></tr>
+                        <tr><td>2026-07-19</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">2</td><td></td></tr>
+                        <tr><td>2026-07-20</td><td class="num">3</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">1</td><td class="note">Good day. Pacing worked.</td></tr>
+                        <tr><td>2026-07-21</td><td class="num">4</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">2</td><td></td></tr>
+                        <tr><td>2026-07-22</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">1</td><td></td></tr>
+                        <tr><td>2026-07-23</td><td class="num">3</td><td class="num">4</td><td class="num">3</td><td class="num">2</td><td class="num">2</td><td class="note">Joint pain worse in the heat.</td></tr>
+                        <tr><td>2026-07-24</td><td class="num">4</td><td class="num">4</td><td class="num">4</td><td class="num">2</td><td class="num">3</td><td></td></tr>
+                        <tr><td>2026-07-25</td><td class="num">5</td><td class="num">5</td><td class="num">4</td><td class="num">1</td><td class="num">4</td><td class="note">Worst day this stretch. Missed PT.</td></tr>
+                        <tr><td>2026-07-26</td><td class="num">4</td><td class="num">3</td><td class="num">4</td><td class="num">2</td><td class="num">3</td><td></td></tr>
+                        <tr><td>2026-07-27</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">2</td><td class="note">Started the new sleep routine.</td></tr>
+                        <tr><td>2026-07-29</td><td class="num">3</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">2</td><td></td></tr>
+                        <tr><td>2026-07-30</td><td class="num">2</td><td class="num">2</td><td class="num">2</td><td class="num">4</td><td class="num">1</td><td></td></tr>
+                        <tr><td>2026-07-31</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">3</td><td class="num">2</td><td></td></tr>
+                        <tr><td>2026-08-01</td><td class="num">4</td><td class="num">4</td><td class="num">3</td><td class="num">2</td><td class="num">3</td><td class="note">Dizzy standing up all morning.</td></tr>
+                    </tbody>
+                </table>
+                <div class="rpt-legend">Severity scale: 1 = Mild &nbsp; 2 = Low &nbsp; 3 = Moderate &nbsp; 4 = High &nbsp; 5 = Severe</div>
+                <div class="rpt-footer">Generated by Ebb &middot; 8/15/2026</div>
+            </div>
+            <p class="scroll-hint">On a phone, scroll the report sideways to see every column. The rest of the 30 days continues on page 2.</p>
+        </div>
+
+        <p><a class="cta-ghost" href="/ebb-sample-report.pdf" target="_blank" rel="noopener">Download the full sample PDF (2 pages)</a></p>
+
+        <h2>What's in it</h2>
+        <ul>
+            <li><strong>The date range</strong> and the list of symptoms you track, at the top.</li>
+            <li><strong>One row per day you logged</strong>, in date order. Days you skipped simply aren't there.</li>
+            <li><strong>One column per symptom</strong>, with that day's 1&ndash;5 rating. A dash means you didn't rate that symptom.</li>
+            <li><strong>Your note</strong> for the day, in the last column, exactly as you wrote it.</li>
+            <li><strong>The severity legend</strong> &mdash; 1 = Mild through 5 = Severe &mdash; so a clinician reading it cold knows what the numbers mean.</li>
+        </ul>
+
+        <h2>What's not in it</h2>
+        <p>Being straight about the limits, because finding them out after paying is worse:</p>
+        <ul>
+            <li><strong>No charts.</strong> The PDF is a table. Trend charts live in the app's Trends screen; they aren't exported.</li>
+            <li><strong>No date-range picker.</strong> The report covers the last 30 days, ending today. You can't yet ask for "since my last appointment in March."</li>
+            <li><strong>No averages or summary row.</strong> The daily numbers are there; the arithmetic isn't done for you.</li>
+            <li><strong>No medications, vitals, or appointment fields.</strong> Ebb tracks symptoms and one free-text note per day. That's the whole data model.</li>
+        </ul>
+        <p>Charts in the PDF and a real date-range picker are both on the roadmap, driven by user email. No promised date &mdash; Ebb is built by one developer.</p>
+
+        <h2>How to generate one</h2>
+        <p>In the app: <strong>Settings &rarr; Export PDF Report</strong>. It builds on your device and opens the standard iOS share sheet, so you can save it to Files, email it to your doctor's office ahead of the visit, message it, or send it straight to a printer. Nothing is uploaded anywhere &mdash; Ebb has no server holding your health data.</p>
+
+        <div class="card">
+            <p style="margin-bottom: 8px;"><strong>Free vs premium, precisely:</strong></p>
+            <ul style="margin-bottom: 0;">
+                <li><strong>Free:</strong> CSV export of your <em>entire</em> logging history, plus up to 5 symptoms, full history, and 7-day trends.</li>
+                <li><strong>Premium ($4.99/month or $29.99/year):</strong> this PDF report, unlimited symptoms, and 30-day / 90-day / all-time trend charts in the app.</li>
+            </ul>
+        </div>
+
+        <p>If what you actually need is the raw data over a long stretch &mdash; for a disability claim, say &mdash; the free CSV covers more days than the PDF does. Say so out loud rather than sell you the wrong tier.</p>
+
+        <a class="cta" href="https://apps.apple.com/us/app/ebb-symptom-tracker/id6759589558">Get Ebb free on iPhone</a>
+
+        <h2>Common questions</h2>
+        <h3>What does Ebb's PDF symptom report contain?</h3>
+        <p>One table covering the last 30 days: a row per logged day, a column per symptom with its 1&ndash;5 rating, and your note for that day. The date range and symptom list sit above the table; the severity legend sits below it.</p>
+        <h3>Does the PDF report include charts?</h3>
+        <p>No. The PDF is a table of daily ratings and notes. Trend charts are in the app's Trends screen, not in the export.</p>
+        <h3>What date range does the PDF cover?</h3>
+        <p>The last 30 days, ending today. There's no date-range picker yet. For your full history, the free CSV export includes every day you've logged.</p>
+        <h3>Is the PDF report free?</h3>
+        <p>No &mdash; it's part of Ebb Premium ($4.99/month or $29.99/year). CSV export of your full history is free.</p>
+        <h3>Where does the PDF go after it's generated?</h3>
+        <p>It's built on your device and handed to the iOS share sheet: Files, Mail, Messages, or Print. Nothing is uploaded to a server.</p>
+
+        <p style="margin-top: 40px;"><a class="home-link" href="/">&larr; More about Ebb</a></p>
+    </article>
+    <footer>
+        <a href="/">Ebb</a> · <a href="/fibromyalgia-symptom-tracker">Fibromyalgia</a> · <a href="/pots-symptom-tracker">POTS</a> · <a href="/mecfs-symptom-tracker">ME/CFS</a> · <a href="/lupus-symptom-tracker">Lupus</a> · <a href="/long-covid-symptom-tracker">Long COVID</a> · <a href="/eds-symptom-tracker">EDS</a> · <a href="/brain-fog-symptom-tracker">Brain fog</a> · <a href="/doctor-appointment-symptom-log">Symptom log for your doctor</a> · <a href="/pdf-report-sample">PDF report sample</a> · <a href="/bearable-alternative">Ebb vs Bearable</a> · <a href="/privacy">Privacy</a> · <a href="/support">Support</a>
+    </footer>
+</body>
+</html>
