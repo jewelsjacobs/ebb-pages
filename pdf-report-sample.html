@@ -90,6 +90,10 @@
         .paper .rpt-legend { margin-top: 20px; font-size: 10px; color: #888; }
         .paper .rpt-footer { margin-top: 28px; font-size: 10px; color: #aaa; border-top: 1px solid #E0D7F5; padding-top: 8px; }
         .scroll-hint { font-size: 0.8rem; color: var(--text-muted); margin-top: 8px; }
+        .paper .rpt-charts-heading { font-size: 14px; color: #222; margin: 18px 0 2px; font-weight: 600; }
+        .paper .chart-block { margin-top: 14px; }
+        .paper .chart-title { font-size: 11px; font-weight: 600; color: #7C5CBF; margin-bottom: 2px; }
+        .paper .chart-more { font-size: 10px; color: #aaa; margin-top: 10px; font-style: italic; }
     </style>
     <script type="application/ld+json">
 {
@@ -101,7 +105,7 @@
       "name": "What does Ebb's PDF symptom report contain?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One table covering the last 30 days: a row per logged day, a column per symptom you track with its 1–5 rating, and your note for that day. Above the table is the date range and the list of symptoms; below it is the severity legend explaining what 1 through 5 mean."
+        "text": "A trend chart for each symptom you track, followed by one table: a row per logged day, a column per symptom with its 1–5 rating, and your note for that day. The date range and symptom list sit at the top; the severity legend explaining what 1 through 5 mean sits below the table."
       }
     },
     {
@@ -109,7 +113,7 @@
       "name": "Does the PDF report include charts?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The PDF is a table of daily ratings and notes. Trend charts live in the app's Trends screen, not in the exported PDF."
+        "text": "Yes. Each symptom gets its own trend chart at the top of the report — a line of your daily 1–5 ratings across the chosen period — so a clinician sees the shape of things before the day-by-day table."
       }
     },
     {
@@ -117,7 +121,7 @@
       "name": "What date range does the PDF cover?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The last 30 days, ending today. There is no date-range picker yet. If you need your full history, the free CSV export includes every day you have logged."
+        "text": "You choose when you export: the last 30 days, the last 90 days, the last 6 months, or your entire logging history."
       }
     },
     {
@@ -153,6 +157,16 @@
             <div class="paper">
                 <h3 class="rpt-title">Ebb &mdash; Symptom Report</h3>
                 <div class="rpt-sub">Period: 2026-07-16 to 2026-08-15 &nbsp;&middot;&nbsp; Symptoms tracked: Fatigue, Pain, Brain fog, Sleep quality, Dizziness</div>
+                <div class="rpt-charts-heading">Trends</div>
+                <div class="chart-block">
+                    <div class="chart-title">Fatigue</div>
+                    <svg viewBox="0 0 560 96" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fatigue trend chart, daily 1 to 5 ratings from 2026-07-16 to 2026-08-15">
+    <line x1="26" y1="78" x2="552" y2="78" stroke="#E0D7F5" stroke-width="1"/><text x="20" y="81" font-size="8" fill="#aaa" text-anchor="end">1</text><line x1="26" y1="60.5" x2="552" y2="60.5" stroke="#E0D7F5" stroke-width="1"/><text x="20" y="63.5" font-size="8" fill="#aaa" text-anchor="end">2</text><line x1="26" y1="43" x2="552" y2="43" stroke="#E0D7F5" stroke-width="1"/><text x="20" y="46" font-size="8" fill="#aaa" text-anchor="end">3</text><line x1="26" y1="25.5" x2="552" y2="25.5" stroke="#E0D7F5" stroke-width="1"/><text x="20" y="28.5" font-size="8" fill="#aaa" text-anchor="end">4</text><line x1="26" y1="8" x2="552" y2="8" stroke="#E0D7F5" stroke-width="1"/><text x="20" y="11" font-size="8" fill="#aaa" text-anchor="end">5</text><polyline points="26,25.5 43.5,8 61.1,8 78.6,43 96.1,43 113.7,25.5 131.2,60.5 148.7,43 166.3,25.5 183.8,8 201.3,25.5 218.9,43 253.9,43 271.5,60.5 289,43 306.5,25.5 324.1,25.5 341.6,43 359.1,60.5 376.7,60.5 394.2,43 429.3,25.5 446.8,25.5 464.3,43 481.9,43 499.4,60.5 516.9,43 534.5,60.5 552,43" fill="none" stroke="#7C5CBF" stroke-width="1.5"/><circle cx="26" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="43.5" cy="8" r="2.4" fill="#7C5CBF"/><circle cx="61.1" cy="8" r="2.4" fill="#7C5CBF"/><circle cx="78.6" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="96.1" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="113.7" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="131.2" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="148.7" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="166.3" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="183.8" cy="8" r="2.4" fill="#7C5CBF"/><circle cx="201.3" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="218.9" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="253.9" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="271.5" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="289" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="306.5" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="324.1" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="341.6" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="359.1" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="376.7" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="394.2" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="429.3" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="446.8" cy="25.5" r="2.4" fill="#7C5CBF"/><circle cx="464.3" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="481.9" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="499.4" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="516.9" cy="43" r="2.4" fill="#7C5CBF"/><circle cx="534.5" cy="60.5" r="2.4" fill="#7C5CBF"/><circle cx="552" cy="43" r="2.4" fill="#7C5CBF"/>
+    <text x="26" y="92" font-size="8" fill="#aaa">2026-07-16</text>
+    <text x="552" y="92" font-size="8" fill="#aaa" text-anchor="end">2026-08-15</text>
+  </svg>
+                </div>
+                <div class="chart-more">&hellip;plus one chart like this for each of the other four symptoms (see the full PDF below).</div>
                 <table>
                     <thead>
                         <tr><th>Date</th><th>Fatigue</th><th>Pain</th><th>Brain fog</th><th>Sleep quality</th><th>Dizziness</th><th>Note</th></tr>
@@ -186,7 +200,8 @@
 
         <h2>What's in it</h2>
         <ul>
-            <li><strong>The date range</strong> and the list of symptoms you track, at the top.</li>
+            <li><strong>A trend chart per symptom</strong>, at the top &mdash; your daily 1&ndash;5 ratings as a line over the whole period, so the shape is visible before the numbers.</li>
+            <li><strong>The date range</strong> and the list of symptoms you track. You pick the period when you export: last 30 days, 90 days, 6 months, or everything.</li>
             <li><strong>One row per day you logged</strong>, in date order. Days you skipped simply aren't there.</li>
             <li><strong>One column per symptom</strong>, with that day's 1&ndash;5 rating. A dash means you didn't rate that symptom.</li>
             <li><strong>Your note</strong> for the day, in the last column, exactly as you wrote it.</li>
@@ -196,15 +211,14 @@
         <h2>What's not in it</h2>
         <p>Being straight about the limits, because finding them out after paying is worse:</p>
         <ul>
-            <li><strong>No charts.</strong> The PDF is a table. Trend charts live in the app's Trends screen; they aren't exported.</li>
-            <li><strong>No date-range picker.</strong> The report covers the last 30 days, ending today. You can't yet ask for "since my last appointment in March."</li>
-            <li><strong>No averages or summary row.</strong> The daily numbers are there; the arithmetic isn't done for you.</li>
+            <li><strong>No custom date ranges.</strong> You choose from four periods (30 days, 90 days, 6 months, everything) &mdash; you can't yet ask for "since my last appointment in March" specifically.</li>
+            <li><strong>No averages or summary row.</strong> The daily numbers and charts are there; the arithmetic isn't done for you.</li>
             <li><strong>No medications, vitals, or appointment fields.</strong> Ebb tracks symptoms and one free-text note per day. That's the whole data model.</li>
         </ul>
-        <p>Charts in the PDF and a real date-range picker are both on the roadmap, driven by user email. No promised date &mdash; Ebb is built by one developer.</p>
+        <p>Charts in the PDF and the period picker both shipped in v1.0.6 (August 2026) because users asked for them by email. The rest of the roadmap works the same way &mdash; no promised dates, Ebb is built by one developer.</p>
 
         <h2>How to generate one</h2>
-        <p>In the app: <strong>Settings &rarr; Export PDF Report</strong>. It builds on your device and opens the standard iOS share sheet, so you can save it to Files, email it to your doctor's office ahead of the visit, message it, or send it straight to a printer. Nothing is uploaded anywhere &mdash; Ebb has no server holding your health data.</p>
+        <p>In the app: <strong>Settings &rarr; Export PDF Report</strong>, then pick the period (30 days, 90 days, 6 months, or everything). It builds on your device and opens the standard iOS share sheet, so you can save it to Files, email it to your doctor's office ahead of the visit, message it, or send it straight to a printer. Nothing is uploaded anywhere &mdash; Ebb has no server holding your health data.</p>
 
         <div class="card">
             <p style="margin-bottom: 8px;"><strong>Free vs premium, precisely:</strong></p>
@@ -220,11 +234,11 @@
 
         <h2>Common questions</h2>
         <h3>What does Ebb's PDF symptom report contain?</h3>
-        <p>One table covering the last 30 days: a row per logged day, a column per symptom with its 1&ndash;5 rating, and your note for that day. The date range and symptom list sit above the table; the severity legend sits below it.</p>
+        <p>A trend chart for each symptom, then one table: a row per logged day, a column per symptom with its 1&ndash;5 rating, and your note for that day. The date range and symptom list sit at the top; the severity legend sits below the table.</p>
         <h3>Does the PDF report include charts?</h3>
-        <p>No. The PDF is a table of daily ratings and notes. Trend charts are in the app's Trends screen, not in the export.</p>
+        <p>Yes &mdash; since v1.0.6. Each symptom gets its own trend line at the top of the report, covering the same period as the table.</p>
         <h3>What date range does the PDF cover?</h3>
-        <p>The last 30 days, ending today. There's no date-range picker yet. For your full history, the free CSV export includes every day you've logged.</p>
+        <p>Your choice at export time: the last 30 days, the last 90 days, the last 6 months, or your entire logging history.</p>
         <h3>Is the PDF report free?</h3>
         <p>No &mdash; it's part of Ebb Premium ($4.99/month or $29.99/year). CSV export of your full history is free.</p>
         <h3>Where does the PDF go after it's generated?</h3>
